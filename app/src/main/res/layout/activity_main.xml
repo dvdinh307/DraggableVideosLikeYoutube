@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Movie Thumbnail -->
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <ListView
+            android:id="@+id/list_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_poster" />
+    </RelativeLayout>
+
+    <!-- DraggableView -->
+
+    <com.github.pedrovgs.DraggableView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/draggable_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        draggable_view:bottom_view_id="@+id/rl_sub"
+        draggable_view:enable_minimized_horizontal_alpha_effect="false"
+        draggable_view:top_view_height="@dimen/top_fragment_height"
+        draggable_view:top_view_id="@+id/video_view"
+        draggable_view:top_view_margin_bottom="@dimen/top_fragment_margin"
+        draggable_view:top_view_margin_right="@dimen/top_fragment_margin"
+        draggable_view:top_view_resize="true"
+        draggable_view:top_view_x_scale_factor="@dimen/x_scale_factor"
+        draggable_view:enable_click_to_maximize_view="true"
+        draggable_view:top_view_y_scale_factor="@dimen/y_scale_factor">
+
+        <!-- Video Thumbnail -->
+        <RelativeLayout
+            android:id="@+id/rl_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dragView"
+            android:background="@android:color/holo_red_light">
+
+            <ListView
+                android:id="@+id/list_sub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+        </RelativeLayout>
+
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+
+    </com.github.pedrovgs.DraggableView>
+
+</FrameLayout>
